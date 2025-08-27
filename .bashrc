@@ -39,10 +39,9 @@ if [ "$USER" = "root" ]; then
 else
     color_user="\[\033[0;34m\]" # blue
 fi
-color_cwd="\[\033[37m\]"
 color_reset="\[\033[00m\]"
-PS1="${color_user}\u@\h ${color_cwd}\w $ ${color_reset}"
-unset color_reset color_cwd color_user
+PS1="${color_user}\u@\h ${color_reset}\w $"
+unset color_reset color_user
 
 # aliases
 alias ls='ls --color=auto --group-directories-first'
