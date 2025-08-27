@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-DOTFILES=( .vimrc .tmux.conf .gitconfig )
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ROOT_DIR=$( dirname $SCRIPT_DIR )
 
-cd
-for f in ${DOTFILES}; do
-    echo $f
-    # ln -s $f
+DOTFILES=( .vimrc .tmux.conf .gitconfig )
+for f in ${DOTFILES[@]}; do
+    rm -f ~/$f
+    ln -s $ROOT_DIR/$f ~/$f
 done
