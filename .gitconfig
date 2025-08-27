@@ -1,0 +1,22 @@
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    df = diff
+
+[color]
+    ui = true
+
+[core]
+    editor = vim
+    pager = less -rFX
+    ignoreCase = false
+
+[push]
+    default = simple
+
+[pull]
+    ff = only
+
+[init]
+    defaultBranch = master
