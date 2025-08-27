@@ -34,7 +34,15 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]'
+if [ "$USER" = "root" ]; then
+    color_user="\[\033[0;31m\]" # red
+else
+    color_user="\[\033[0;34m\]" # blue
+fi
+color_cwd="\[\033[37m\]"
+color_reset="\[\033[00m\]"
+PS1="${color_user}\u@\h ${color_cwd}\w $ ${color_reset}"
+unset color_reset color_cwd color_user
 
 # aliases
 alias ls='ls --color=auto --group-directories-first'
