@@ -40,7 +40,7 @@ else
     color_user="\[\033[0;34m\]" # blue
 fi
 color_reset="\[\033[00m\]"
-PS1="${color_user}\u@\h ${color_reset}\w $"
+PS1="${color_user}\u@\h ${color_reset}\w $ "
 unset color_reset color_user
 
 # aliases
