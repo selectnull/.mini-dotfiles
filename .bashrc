@@ -51,6 +51,11 @@ alias ll='ls --color=auto -lah --group-directories-first'
 alias grep='grep --color=auto'
 
 # set PATH so it includes private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
+fi
+
+# run extra commands
+if [ -f "$HOME/.extrarc" ]; then
+    . "$HOME/.extrarc" 
 fi
